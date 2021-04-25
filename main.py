@@ -15,6 +15,7 @@ logo = """
 """
 
 players = ['', 'X', 'O']
+scores = {'X': 0, 'Y': 0}
 i = 1
 
 while '' in cells.values():
