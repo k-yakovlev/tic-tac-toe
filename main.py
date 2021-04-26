@@ -1,5 +1,14 @@
 import random
 
+LOGO = """
+,--------.,--.               ,--.                         ,--.                 
+'--.  .--'`--' ,---.,-----.,-'  '-. ,--,--. ,---.,-----.,-'  '-. ,---.  ,---.  
+   |  |   ,--.| .--''-----''-.  .-'' ,-.  || .--''-----''-.  .-'| .-. || .-. : 
+   |  |   |  |\ `--.         |  |  \ '-'  |\ `--.         |  |  ' '-' '\  ---. 
+   `--'   `--' `---'         `--'   `--`--' `---'         `--'   `---'  `----' 
+
+"""
+
 
 def ask_new_game(attempt):
     """Ask user to play a game of tic-tac-toe."""
@@ -11,32 +20,34 @@ def ask_new_game(attempt):
         answer = input(f'{word} "y" (as "yes") to play or "n" (as "no") to leave the game: ')
 
     if answer.lower() == 'y':
-        return
+        return create_players()
     elif answer.lower() == 'n':
         return
     ask_new_game(attempt=2)
 
 
-logo = """
-,--------.,--.               ,--.                         ,--.                 
-'--.  .--'`--' ,---.,-----.,-'  '-. ,--,--. ,---.,-----.,-'  '-. ,---.  ,---.  
-   |  |   ,--.| .--''-----''-.  .-'' ,-.  || .--''-----''-.  .-'| .-. || .-. : 
-   |  |   |  |\ `--.         |  |  \ '-'  |\ `--.         |  |  ' '-' '\  ---. 
-   `--'   `--' `---'         `--'   `--`--' `---'         `--'   `---'  `----' 
-
-"""
-
-# nums = {'1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'}
-# cells = {'1': '', '2': '', '3': '', '4': '', '5': '', '6': '', '7': '', '8': '', '9': ''}
-#
-# player_x_cells = []
-# player_o_cells = []
+def create_players():
+    global players, scores
+    players = ['X', 'O']
+    scores = {'X': 0, 'O': 0}
+    return create_boards()
 
 
-# players = ['', 'X', 'O']
-# scores = {'X': 0, 'Y': 0}
-# i = 1
-#
+def create_boards():
+    """Create new board for game and help-board with cells numbers"""
+    global nums, cells
+    nums = {'1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'}
+    cells = {'1': '', '2': '', '3': '', '4': '', '5': '', '6': '', '7': '', '8': '', '9': ''}
+    return
+
+
+players = []
+scores = {}
+i = -1
+
+nums = {}
+cells = {}
+
 # while '' in cells.values():
 #     help_1 = f'{nums["1"]:^5s}│{nums["2"]:^5s}│{nums["3"]:^5s}'
 #     help_2 = f'{nums["4"]:^5s}│{nums["5"]:^5s}│{nums["6"]:^5s}'
@@ -51,7 +62,7 @@ logo = """
 #     current_player = f'Player "{players[i]}"'
 #
 #     print('\n' * 100)
-#     print(logo)
+#     print(LOGO)
 #     print(3*' ' + help_1 + 38*' ' + result_1)
 #     print(3*' ' + separator + 38*' ' + separator)
 #     print(3*' ' + help_2 + f'{current_player:^38s}' + result_2)
@@ -67,5 +78,5 @@ logo = """
 #     i = -i
 
 if __name__ == '__main__':
-    print(logo)
+    print(LOGO)
     ask_new_game(attempt=1)
