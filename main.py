@@ -1,11 +1,20 @@
-def ask_new_game():
+import random
+
+
+def ask_new_game(attempt):
     """Ask user to play a game of tic-tac-toe."""
-    answer = input('Would you like to play a game (y/n): ')
+    if attempt == 1:
+        answer = input('Wanna play? (y/n): ')
+    else:
+        words = ['Enter', 'Type', 'Only', 'Just', 'WARNING:']
+        word = random.choice(words)
+        answer = input(f'{word} "y" (as "yes") to play or "n" (as "no") to leave the game: ')
+
     if answer.lower() == 'y':
         return
     elif answer.lower() == 'n':
         return
-    ask_new_game()
+    ask_new_game(attempt=2)
 
 
 logo = """
@@ -59,4 +68,4 @@ logo = """
 
 if __name__ == '__main__':
     print(logo)
-    ask_new_game()
+    ask_new_game(attempt=1)
