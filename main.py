@@ -1,3 +1,13 @@
+def ask_new_game():
+    """Ask user to play a game of tic-tac-toe."""
+    answer = input('Would you like to play a game (y/n): ')
+    if answer.lower() == 'y':
+        pass
+    elif answer.lower() == 'n':
+        return
+    ask_new_game()
+
+
 nums = {'1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'}
 cells = {'1': '', '2': '', '3': '', '4': '', '5': '', '6': '', '7': '', '8': '', '9': ''}
 
