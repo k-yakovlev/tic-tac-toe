@@ -46,6 +46,7 @@ def show_board():
     i = 1
     wrong_cell = False
     player_input = ''
+    # TODO: Fix while loop. Current loop doesn't process the last cell.
     while '' in cells.values():
         help_1 = f'{nums["1"]:^5s}│{nums["2"]:^5s}│{nums["3"]:^5s}'
         help_2 = f'{nums["4"]:^5s}│{nums["5"]:^5s}│{nums["6"]:^5s}'
