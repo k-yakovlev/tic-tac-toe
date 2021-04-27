@@ -112,6 +112,12 @@ def game():
         create_players()
         create_board()
         show_board()
+        ask_a_move()
+        while not cell_is_available():
+            show_board()
+            show_error()
+            ask_a_move()
+        mark_a_cell()
 
 
 players = []
