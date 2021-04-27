@@ -1,5 +1,3 @@
-import random
-
 LOGO = """
 ,--------.,--.               ,--.                         ,--.                 
 '--.  .--'`--' ,---.,-----.,-'  '-. ,--,--. ,---.,-----.,-'  '-. ,---.  ,---.  
@@ -15,9 +13,7 @@ def ask_new_game(attempt):
     if attempt == 1:
         answer = input('Wanna play? (y/n): ')
     else:
-        words = ['Enter', 'Type', 'Only', 'Just', 'WARNING:']
-        word = random.choice(words)
-        answer = input(f'{word} "y" (as "yes") to play or "n" (as "no") to leave the game: ')
+        answer = input('Enter "y" (as "yes") to play or "n" (as "no") to leave the game: ')
 
     if answer.lower() == 'y':
         return create_players()
