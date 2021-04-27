@@ -31,7 +31,7 @@ def create_players():
     global players, scores
     players = [None, 'X', 'O']
     scores = {'X': 0, 'O': 0}
-    return create_board()
+    return
 
 
 def create_board():
@@ -39,7 +39,7 @@ def create_board():
     global nums, cells
     nums = {'1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'}
     cells = {'1': '', '2': '', '3': '', '4': '', '5': '', '6': '', '7': '', '8': '', '9': ''}
-    return show_board()
+    return
 
 
 def show_board():
@@ -63,7 +63,7 @@ def show_board():
     print(f'{line:>20s}{"":^38s}{line:<20s}')
     print(f'{help_3:>20s}{current_player:^38s}{board_3:<20s}')
 
-    return ask_next_move()
+    return
 
 
 def ask_next_move():
