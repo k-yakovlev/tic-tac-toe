@@ -104,7 +104,10 @@ def check_if_1000_wins():
 
 def game():
     print(LOGO)
-    user_want_play()
+    if user_want_play():
+        create_players()
+        create_board()
+        show_board()
 
 
 players = []
