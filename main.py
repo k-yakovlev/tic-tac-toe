@@ -66,7 +66,7 @@ def show_board():
     return
 
 
-def ask_next_move():
+def ask_a_move():
     global player_input
     if player_input and cell_unavailable():
         if player_input in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
