@@ -68,7 +68,7 @@ def show_board():
 
 def ask_a_move():
     global player_input
-    if player_input and cell_unavailable():
+    if player_input and not cell_is_available():
         if player_input in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
             taken_cell_message = f'Cell "{player_input}" is already taken. Try again.'
             print(f'{taken_cell_message:^78s}')
@@ -79,11 +79,10 @@ def ask_a_move():
     return
 
 
-def cell_unavailable():
+def cell_is_available():
     if player_input in nums.values():
-        mark_a_cell()
-        return False
-    return True
+        return True
+    return False
 
 
 def mark_a_cell():
