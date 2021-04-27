@@ -8,13 +8,13 @@ LOGO = """
 """
 
 
-def user_want_play(attempt=1):
+def user_want_play(again=False):
     """Return True if user want to play, otherwise return False.
 
     If user input is incorrect, then extended question will be shown
     again till to correct answer (y/n).
     """
-    if attempt == 1:
+    if not again:
         answer = input('Wanna play? (y/n): ')
     else:
         answer = input('Enter "y" (as "yes") to play or "n" (as "no") to leave the game: ')
@@ -24,7 +24,7 @@ def user_want_play(attempt=1):
     elif answer.lower() == 'n':
         return False
     else:
-        return user_want_play(attempt=2)
+        return user_want_play(again=True)
 
 
 def create_players():
