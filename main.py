@@ -91,11 +91,13 @@ def show_error():
 def mark_a_cell():
     cells[player_input] = players[player]
     nums[player_input] = ' '
+    return
 
 
 def change_player():
     global player
     player = -player
+    return
 
 
 def check_if_1000_wins():
