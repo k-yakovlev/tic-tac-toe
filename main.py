@@ -8,18 +8,23 @@ LOGO = """
 """
 
 
-def ask_new_game(attempt):
-    """Ask user to play a game of tic-tac-toe."""
+def user_want_play(attempt=1):
+    """Return True if user want to play, otherwise return False.
+
+    If user input is incorrect, then extended question will be shown
+    again till to correct answer (y/n).
+    """
     if attempt == 1:
         answer = input('Wanna play? (y/n): ')
     else:
         answer = input('Enter "y" (as "yes") to play or "n" (as "no") to leave the game: ')
 
     if answer.lower() == 'y':
-        return create_players()
+        return True
     elif answer.lower() == 'n':
-        return
-    return ask_new_game(attempt=2)
+        return False
+    else:
+        return user_want_play(attempt=2)
 
 
 def create_players():
@@ -99,7 +104,7 @@ def check_if_1000_wins():
 
 def game():
     print(LOGO)
-    ask_new_game(attempt=1)
+    user_want_play()
 
 
 players = []
