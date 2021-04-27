@@ -68,13 +68,6 @@ def show_board():
 
 def ask_a_move():
     global player_input
-    if player_input and not cell_is_available():
-        if player_input in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
-            taken_cell_message = f'Cell "{player_input}" is already taken. Try again.'
-            print(f'{taken_cell_message:^78s}')
-        else:
-            wrong_cell_message = f'It is not a number of cell. Try again.'
-            print(f'{wrong_cell_message:^78s}')
     player_input = input(f'{"":>28s}Enter the cell number: ')
     return
 
@@ -83,6 +76,16 @@ def cell_is_available():
     if player_input in nums.values():
         return True
     return False
+
+
+def show_error():
+    if player_input in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
+        taken_cell_message = f'Cell "{player_input}" is already taken. Try again.'
+        print(f'{taken_cell_message:^78s}')
+    else:
+        wrong_cell_message = f'It is not a number of cell. Try again.'
+        print(f'{wrong_cell_message:^78s}')
+    return
 
 
 def mark_a_cell():
