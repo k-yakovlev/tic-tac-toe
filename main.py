@@ -101,6 +101,11 @@ def check_if_1000_wins():
     return
 
 
+def game():
+    print(LOGO)
+    ask_new_game(attempt=1)
+
+
 players = []
 player = 1
 scores = {}
@@ -109,5 +114,4 @@ nums = {}
 cells = {}
 
 if __name__ == '__main__':
-    print(LOGO)
-    ask_new_game(attempt=1)
+    game()
