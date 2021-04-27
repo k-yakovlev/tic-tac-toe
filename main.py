@@ -76,7 +76,7 @@ def ask_a_move():
             wrong_cell_message = f'It is not a number of cell. Try again.'
             print(f'{wrong_cell_message:^78s}')
     player_input = input(f'{"":>28s}Enter the cell number: ')
-    return cell_unavailable()
+    return
 
 
 def cell_unavailable():
