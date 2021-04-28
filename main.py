@@ -92,7 +92,7 @@ def show_error():
 def save_a_move():
     cells[player_input] = players[player]
     nums[player_input] = ' '
-    players_cells[players[player]].append(int(player_input))
+    players_cells[players[player]].add(int(player_input))
     return
 
 
