@@ -142,10 +142,12 @@ def show_draw_message():
     return
 
 
-def check_if_1000_wins():
+def is_1000_wins():
     if 1000 in scores.values():
-        print('1000 Game Over')
-    return
+        print('Wow, 1000 scores! Take a rest, game over.')
+        return True
+    else:
+        return False
 
 
 def quit_game():
