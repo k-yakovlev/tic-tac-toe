@@ -39,7 +39,7 @@ def create_board():
     global nums, cells, players_cells
     nums = {'1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'}
     cells = {'1': '', '2': '', '3': '', '4': '', '5': '', '6': '', '7': '', '8': '', '9': ''}
-    players_cells = {'X': {}, 'O': {}}
+    players_cells = {'X': set(), 'O': set()}
     return
 
 
