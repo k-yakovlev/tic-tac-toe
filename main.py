@@ -111,6 +111,13 @@ def row_of_3_marks():
         return False
 
 
+def cross_out_winning_row():
+    green_font = '\033[1;32;1m'
+    for cell in winning_row:
+        cells[str(cell)] = green_font + cells[str(cell)]
+    return
+
+
 def check_if_1000_wins():
     if 1000 in scores.values():
         print('1000 Game Over')
