@@ -100,6 +100,10 @@ def change_player():
     return
 
 
+def row_of_3_marks():
+    pass
+
+
 def check_if_1000_wins():
     if 1000 in scores.values():
         print('1000 Game Over')
