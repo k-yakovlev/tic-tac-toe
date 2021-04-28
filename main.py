@@ -118,6 +118,11 @@ def cross_out_winning_row():
     return
 
 
+def update_score():
+    scores[players[player]] += 1
+    return
+
+
 def check_if_1000_wins():
     if 1000 in scores.values():
         print('1000 Game Over')
