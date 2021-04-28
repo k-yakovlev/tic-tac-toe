@@ -129,6 +129,12 @@ def show_win_message():
     return
 
 
+def show_draw_message():
+    draw_message = 'It\'s a draw.'
+    print(f'{draw_message:^78s}')
+    return
+
+
 def check_if_1000_wins():
     if 1000 in scores.values():
         print('1000 Game Over')
