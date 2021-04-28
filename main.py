@@ -36,9 +36,10 @@ def create_players():
 
 def create_board():
     """Create new board for game and help-board with cells numbers"""
-    global nums, cells
+    global nums, cells, players_cells
     nums = {'1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'}
     cells = {'1': '', '2': '', '3': '', '4': '', '5': '', '6': '', '7': '', '8': '', '9': ''}
+    players_cells = {'X': [], 'O': []}
     return
 
 
@@ -126,6 +127,7 @@ def game():
 
 players = []
 player = 1
+players_cells = {}
 scores = {}
 player_input = False
 nums = {}
