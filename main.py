@@ -89,9 +89,10 @@ def show_error():
     return
 
 
-def mark_a_cell():
+def save_a_move():
     cells[player_input] = players[player]
     nums[player_input] = ' '
+    players_cells[players[player]].append(int(player_input))
     return
 
 
@@ -122,7 +123,7 @@ def game():
             show_board()
             show_error()
             ask_a_move()
-        mark_a_cell()
+        save_a_move()
 
 
 players = []
