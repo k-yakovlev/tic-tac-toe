@@ -123,6 +123,12 @@ def update_score():
     return
 
 
+def show_win_message():
+    win_message = f'Player "{players[player]}" wins the round!'
+    print(f'{win_message:^78s}')
+    return
+
+
 def check_if_1000_wins():
     if 1000 in scores.values():
         print('1000 Game Over')
