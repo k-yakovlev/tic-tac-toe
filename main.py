@@ -102,7 +102,7 @@ def change_player():
     return
 
 
-def row_of_3_marks():
+def is_row_of_3_marks():
     global winning_row
     winning_row = [_ for _ in winning_cells if _.issubset(players_cells[players[player]])]
     if winning_row:
