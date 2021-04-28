@@ -111,6 +111,13 @@ def is_row_of_3_marks():
         return False
 
 
+def is_all_cells_filled():
+    if '' in cells.values():
+        return False
+    else:
+        return True
+
+
 def cross_out_winning_row():
     green_font = '\033[1;32;1m'
     for cell in winning_row:
