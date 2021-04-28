@@ -103,7 +103,12 @@ def change_player():
 
 
 def row_of_3_marks():
-    pass
+    global winning_row
+    winning_row = [_ for _ in winning_cells if _.issubset(players_cells[players[player]])]
+    if winning_row:
+        return True
+    else:
+        return False
 
 
 def check_if_1000_wins():
@@ -137,6 +142,7 @@ winning_cells = [
     {1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {1, 4, 7},
     {2, 5, 8}, {3, 6, 9}, {1, 5, 9}, {3, 5, 7}
 ]
+winning_row = []
 
 if __name__ == '__main__':
     game()
