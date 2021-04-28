@@ -141,6 +141,11 @@ def check_if_1000_wins():
     return
 
 
+def quit_game():
+    print('See you later!')
+    return
+
+
 def game():
     print(LOGO)
     if user_want_play():
