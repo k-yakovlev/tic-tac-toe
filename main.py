@@ -27,9 +27,10 @@ def user_want_play(again=False):
         return user_want_play(again=True)
 
 
-def create_players():
-    global players, scores
-    players = [None, 'X', 'O']
+def new_game():
+    global player, current_round, scores
+    player = 'X'
+    current_round = 0
     scores = {'X': 0, 'O': 0}
     return
 
@@ -167,7 +168,7 @@ def quit_game():
 def game():
     print(LOGO)
     if user_want_play():
-        create_players()
+        new_game()
         create_board()
         show_board()
         ask_a_move()
@@ -178,10 +179,10 @@ def game():
         save_a_move()
 
 
-players = []
-index = 1
+player = 'X'
+current_round = 0
+scores = {'X': 0, 'O': 0}
 players_cells = {}
-scores = {}
 player_input = False
 nums = {}
 cells = {}
