@@ -128,8 +128,9 @@ def change_player():
 # TODO: fix show_result()
 # TODO: fix loop to exclude 'Wanna play?' after 'Another round?'
 # TODO: refactor highlight_winning_row()
+# TODO: fix encoding for git bash and windows terminal, check on linux
 def highlight_winning_row():
-    start_highlight = '\033[1;32;1m  '
+    start_highlight = '\033[32m  '
     end_highlight = '  \x1b[0m'
     for cell in winning_row[0]:
         cells[str(cell)] = start_highlight + cells[str(cell)] + end_highlight
