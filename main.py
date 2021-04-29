@@ -149,12 +149,8 @@ def is_1000_score():
         return False
 
 
-def user_want_new_round(score_overflow=False):
-    if not score_overflow:
-        answer = input('Another round? (y/n): ')
-    else:
-        return False
-
+def user_want_new_round():
+    answer = input('Another round? (y/n): ')
     if answer.lower() == 'y':
         return True
     elif answer.lower() == 'n':
