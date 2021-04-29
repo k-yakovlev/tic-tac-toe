@@ -30,7 +30,7 @@ def user_want_play(again=False):
 def new_game():
     global player, current_round, scores
     player = 'X'
-    current_round = 0
+    current_round = 1
     scores = {'X': 0, 'O': 0}
     return
 
@@ -184,7 +184,7 @@ def game():
 
 
 player = 'X'
-current_round = 0
+current_round = 1
 scores = {'X': 0, 'O': 0}
 players_cells = {}
 player_input = False
