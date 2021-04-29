@@ -44,7 +44,6 @@ def create_board():
     return
 
 
-# TODO: add round counter to flowchart.
 def show_board():
     help_1 = f'{nums["1"]:^5s}│{nums["2"]:^5s}│{nums["3"]:^5s}'
     help_2 = f'{nums["4"]:^5s}│{nums["5"]:^5s}│{nums["6"]:^5s}'
@@ -162,6 +161,12 @@ def user_want_new_round():
         return False
     else:
         return user_want_new_round()
+
+
+def change_round():
+    global current_round
+    current_round += 1
+    return
 
 
 def quit_game():
