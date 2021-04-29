@@ -130,7 +130,6 @@ def update_score():
     return
 
 
-# TODO: add is_1000_wins() to flowchart
 # TODO: add round counter to flowchart.
 # TODO: add round counter to show_board()
 def show_result(win=False):
@@ -142,7 +141,7 @@ def show_result(win=False):
     return
 
 
-def is_1000_wins():
+def is_1000_score():
     if 1000 in scores.values():
         print('Wow, 1000 scores! Take a rest, game over.')
         return True
