@@ -57,7 +57,7 @@ def show_board():
 
     line = '─────┼─────┼─────'
     score_board = f'"X"{scores["X"]:>4d} : {scores["O"]:<4d}"O"'
-    current_player = f'Player "{players[index]}"'
+    current_player = f'Player "{player}"'
 
     print('\n' * 100)
     print(LOGO)
@@ -93,9 +93,9 @@ def show_error():
 
 
 def save_a_move():
-    cells[player_input] = players[index]
+    cells[player_input] = player
     nums[player_input] = ' '
-    players_cells[players[index]].add(int(player_input))
+    players_cells[player].add(int(player_input))
     return
 
 
@@ -110,7 +110,7 @@ def change_player():
 
 def is_row_of_3_marks():
     global winning_row
-    winning_row = [_ for _ in winning_cells if _.issubset(players_cells[players[index]])]
+    winning_row = [_ for _ in winning_cells if _.issubset(players_cells[player])]
     if winning_row:
         return True
     else:
@@ -132,7 +132,7 @@ def highlight_winning_row():
 
 
 def update_score():
-    scores[players[index]] += 1
+    scores[player] += 1
     return
 
 
@@ -140,7 +140,7 @@ def show_result(win=False):
     if not win:
         message = 'It\'s a draw. Try another round!'
     else:
-        message = f'Player "{players[index]}" wins the round!'
+        message = f'Player "{player}" wins the round!'
     print(f'{message:^78s}')
     return
 
