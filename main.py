@@ -124,10 +124,16 @@ def change_player():
     return
 
 
+# TODO: fix loop for detecting row earlier
+# TODO: fix show_result()
+# TODO: fix align of 'Another round?'
+# TODO: fix loop to exclude 'Wanna play?' after 'Another round?'
+# TODO: refactor highlight_winning_row()
 def highlight_winning_row():
-    green_font = '\033[1;32;1m'
-    for cell in winning_row:
-        cells[str(cell)] = green_font + cells[str(cell)]
+    start_highlight = '\033[1;32;1m  '
+    end_highlight = '  \x1b[0m'
+    for cell in winning_row[0]:
+        cells[str(cell)] = start_highlight + cells[str(cell)] + end_highlight
     return
 
 
