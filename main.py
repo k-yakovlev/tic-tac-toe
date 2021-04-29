@@ -118,7 +118,7 @@ def is_all_cells_filled():
         return True
 
 
-def cross_out_winning_row():
+def highlight_winning_row():
     green_font = '\033[1;32;1m'
     for cell in winning_row:
         cells[str(cell)] = green_font + cells[str(cell)]
