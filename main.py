@@ -45,7 +45,6 @@ def create_board():
 
 
 # TODO: add round counter to flowchart.
-# TODO: add round counter to show_board()
 def show_board():
     help_1 = f'{nums["1"]:^5s}│{nums["2"]:^5s}│{nums["3"]:^5s}'
     help_2 = f'{nums["4"]:^5s}│{nums["5"]:^5s}│{nums["6"]:^5s}'
@@ -57,15 +56,17 @@ def show_board():
 
     line = '─────┼─────┼─────'
     score_board = f'"X"{scores["X"]:>4d} : {scores["O"]:<4d}"O"'
-    current_player = f'Player "{player}"'
+    player_string = f'Player "{player}"'
+    round_string = f'Round {current_round}'
 
     print('\n' * 100)
     print(LOGO)
     print(f'{help_1:>20s}{"Game Score":^38s}{board_1:<20s}')
     print(f'{line:>20s}{score_board:^38s}{line:<20s}')
     print(f'{help_2:>20s}{"":^38s}{board_2:<20s}')
-    print(f'{line:>20s}{"":^38s}{line:<20s}')
-    print(f'{help_3:>20s}{current_player:^38s}{board_3:<20s}')
+    print(f'{line:>20s}{round_string:^38s}{line:<20s}')
+    print(f'{help_3:>20s}{"":^38s}{board_3:<20s}')
+    print(f'{player_string:^78s}')
 
     return
 
