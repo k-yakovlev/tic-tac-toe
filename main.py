@@ -150,6 +150,20 @@ def is_1000_wins():
         return False
 
 
+def user_want_new_round(score_overflow=False):
+    if not score_overflow:
+        answer = input('Another round? (y/n): ')
+    else:
+        return False
+
+    if answer.lower() == 'y':
+        return True
+    elif answer.lower() == 'n':
+        return False
+    else:
+        return user_want_new_round()
+
+
 def quit_game():
     print('See you later!')
     return
