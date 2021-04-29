@@ -130,15 +130,15 @@ def update_score():
     return
 
 
-def show_win_message():
-    win_message = f'Player "{players[player]}" wins the round!'
-    print(f'{win_message:^78s}')
-    return
-
-
-def show_draw_message():
-    draw_message = 'It\'s a draw.'
-    print(f'{draw_message:^78s}')
+# TODO: add is_1000_wins() to flowchart
+# TODO: add round counter to flowchart.
+# TODO: add round counter to show_board()
+def show_result(win=False):
+    if not win:
+        message = 'It\'s a draw. Try another round!'
+    else:
+        message = f'Player "{players[player]}" wins the round!'
+    print(f'{message:^78s}')
     return
 
 
