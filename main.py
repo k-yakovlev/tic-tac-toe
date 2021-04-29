@@ -43,6 +43,8 @@ def create_board():
     return
 
 
+# TODO: add round counter to flowchart.
+# TODO: add round counter to show_board()
 def show_board():
     help_1 = f'{nums["1"]:^5s}│{nums["2"]:^5s}│{nums["3"]:^5s}'
     help_2 = f'{nums["4"]:^5s}│{nums["5"]:^5s}│{nums["6"]:^5s}'
@@ -54,7 +56,7 @@ def show_board():
 
     line = '─────┼─────┼─────'
     score_board = f'"X"{scores["X"]:>4d} : {scores["O"]:<4d}"O"'
-    current_player = f'Player "{players[player]}"'
+    current_player = f'Player "{players[index]}"'
 
     print('\n' * 100)
     print(LOGO)
@@ -90,21 +92,21 @@ def show_error():
 
 
 def save_a_move():
-    cells[player_input] = players[player]
+    cells[player_input] = players[index]
     nums[player_input] = ' '
-    players_cells[players[player]].add(int(player_input))
+    players_cells[players[index]].add(int(player_input))
     return
 
 
 def change_player():
-    global player
-    player = -player
+    global index
+    index = -index
     return
 
 
 def is_row_of_3_marks():
     global winning_row
-    winning_row = [_ for _ in winning_cells if _.issubset(players_cells[players[player]])]
+    winning_row = [_ for _ in winning_cells if _.issubset(players_cells[players[index]])]
     if winning_row:
         return True
     else:
@@ -126,17 +128,15 @@ def highlight_winning_row():
 
 
 def update_score():
-    scores[players[player]] += 1
+    scores[players[index]] += 1
     return
 
 
-# TODO: add round counter to flowchart.
-# TODO: add round counter to show_board()
 def show_result(win=False):
     if not win:
         message = 'It\'s a draw. Try another round!'
     else:
-        message = f'Player "{players[player]}" wins the round!'
+        message = f'Player "{players[index]}" wins the round!'
     print(f'{message:^78s}')
     return
 
@@ -179,7 +179,7 @@ def game():
 
 
 players = []
-player = 1
+index = 1
 players_cells = {}
 scores = {}
 player_input = False
