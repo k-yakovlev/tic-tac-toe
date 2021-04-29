@@ -100,8 +100,11 @@ def save_a_move():
 
 
 def change_player():
-    global index
-    index = -index
+    global player
+    if player == 'X':
+        player = 'O'
+    else:
+        player = 'X'
     return
 
 
