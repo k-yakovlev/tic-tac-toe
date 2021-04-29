@@ -99,15 +99,6 @@ def save_a_move():
     return
 
 
-def change_player():
-    global player
-    if player == 'X':
-        player = 'O'
-    else:
-        player = 'X'
-    return
-
-
 def is_row_of_3_marks():
     global winning_row
     winning_row = [_ for _ in winning_cells if _.issubset(players_cells[player])]
@@ -122,6 +113,15 @@ def is_all_cells_filled():
         return False
     else:
         return True
+
+
+def change_player():
+    global player
+    if player == 'X':
+        player = 'O'
+    else:
+        player = 'X'
+    return
 
 
 def highlight_winning_row():
@@ -176,16 +176,28 @@ def quit_game():
 
 def game():
     print(LOGO)
-    if user_want_play():
-        new_game()
+    while user_want_play():
         create_board()
-        show_board()
-        ask_a_move()
-        while not cell_is_available():
+        while not is_row_of_3_marks() or is_all_cells_filled():
             show_board()
-            show_error()
             ask_a_move()
-        save_a_move()
+            while not cell_is_available():
+                show_board()
+                show_error()
+                ask_a_move()
+            save_a_move()
+            change_player()
+        if is_row_of_3_marks():
+            highlight_winning_row()
+            update_score()
+        show_board()
+        show_result()
+        if is_1000_score():
+            quit_game()
+        if user_want_new_round():
+            change_round()
+    else:
+        quit_game()
 
 
 player = 'X'
