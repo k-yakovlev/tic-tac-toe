@@ -126,7 +126,6 @@ def change_player():
 
 # TODO: fix loop for detecting row earlier
 # TODO: fix show_result()
-# TODO: fix align of 'Another round?'
 # TODO: fix loop to exclude 'Wanna play?' after 'Another round?'
 # TODO: refactor highlight_winning_row()
 def highlight_winning_row():
@@ -160,7 +159,7 @@ def is_1000_score():
 
 
 def user_want_new_round():
-    answer = input('Another round? (y/n): ')
+    answer = input(f'{"":28s}Another round? (y/n): ')
     if answer.lower() == 'y':
         return True
     elif answer.lower() == 'n':
