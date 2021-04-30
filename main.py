@@ -45,26 +45,31 @@ def create_board():
 
 
 def show_board():
-    help_1 = f'{nums["1"]:^5s}│{nums["2"]:^5s}│{nums["3"]:^5s}'
-    help_2 = f'{nums["4"]:^5s}│{nums["5"]:^5s}│{nums["6"]:^5s}'
-    help_3 = f'{nums["7"]:^5s}│{nums["8"]:^5s}│{nums["9"]:^5s}'
+    help_1 = f'│{nums["1"]:^5s}│{nums["2"]:^5s}│{nums["3"]:^5s}│'
+    help_2 = f'│{nums["4"]:^5s}│{nums["5"]:^5s}│{nums["6"]:^5s}│'
+    help_3 = f'│{nums["7"]:^5s}│{nums["8"]:^5s}│{nums["9"]:^5s}│'
 
-    board_1 = f'{cells["1"]:^5s}│{cells["2"]:^5s}│{cells["3"]:^5s}'
-    board_2 = f'{cells["4"]:^5s}│{cells["5"]:^5s}│{cells["6"]:^5s}'
-    board_3 = f'{cells["7"]:^5s}│{cells["8"]:^5s}│{cells["9"]:^5s}'
+    board_1 = f'│{cells["1"]:^5s}│{cells["2"]:^5s}│{cells["3"]:^5s}│'
+    board_2 = f'│{cells["4"]:^5s}│{cells["5"]:^5s}│{cells["6"]:^5s}│'
+    board_3 = f'│{cells["7"]:^5s}│{cells["8"]:^5s}│{cells["9"]:^5s}│'
 
-    line = '─────┼─────┼─────'
+
+    top_line = '┌─────┬─────┬─────┐'
+    middle_line = '├─────┼─────┼─────┤'
+    bottom_line = '└─────┴─────┴─────┘'
     score_board = f'"X"{scores["X"]:>4d} : {scores["O"]:<4d}"O"'
     player_string = f'Player "{player}"'
     round_string = f'Round {current_round}'
 
     print('\n' * 100)
     print(LOGO)
+    print(f'{top_line:>20s}{"":^38s}{top_line:<20s}')
     print(f'{help_1:>20s}{"Game Score":^38s}{board_1:<20s}')
-    print(f'{line:>20s}{score_board:^38s}{line:<20s}')
+    print(f'{middle_line:>20s}{score_board:^38s}{middle_line:<20s}')
     print(f'{help_2:>20s}{"":^38s}{board_2:<20s}')
-    print(f'{line:>20s}{round_string:^38s}{line:<20s}')
+    print(f'{middle_line:>20s}{round_string:^38s}{middle_line:<20s}')
     print(f'{help_3:>20s}{"":^38s}{board_3:<20s}')
+    print(f'{bottom_line:>20s}{"":^38s}{bottom_line:<20s}')
     print(f'{player_string:^78s}')
 
     return
