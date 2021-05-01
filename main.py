@@ -39,7 +39,7 @@ def user_want_play(again=False):
 
 def new_game():
     global player, current_round, scores
-    player = 'X'
+    player = 'O'
     current_round = 1
     scores = {'X': 0, 'O': 0}
     return
@@ -181,7 +181,6 @@ def clear_screen():
 
 # TODO: add prompt & actions for quit anytime & reset score
 # TODO: refactor game() and show_result()
-# TODO: change player for next round if draw.
 # TODO: add docstrings.
 
 
@@ -191,6 +190,7 @@ def game():
         create_board()
         while not is_row_of_3_marks() or is_all_cells_filled():
             clear_screen()
+            change_player()
             show_board()
             ask_a_move()
             while not cell_is_available():
@@ -211,12 +211,11 @@ def game():
                 show_board()
                 show_result()
                 break
-            change_player()
     else:
         clear_screen()
 
 
-player = 'X'
+player = 'O'
 current_round = 0
 scores = {'X': 0, 'O': 0}
 players_cells = {}
