@@ -136,8 +136,6 @@ def change_player():
     return
 
 
-# TODO: fix loop for detecting row earlier
-# TODO: fix show_result()
 def highlight_winning_row():
     start_highlight = '  \33[92;5m'
     end_highlight = '\33[0m  '
@@ -179,6 +177,9 @@ def quit_game():
     return
 
 
+# TODO: add prompt & actions for quit anytime & reset score
+# TODO: add empty string if not error message or make replit.clear() instead of '\n'*100
+# TODO: refactor game() and show_result()
 def game():
     print(LOGO)
     while user_want_play():
@@ -192,12 +193,17 @@ def game():
                 show_error()
                 ask_a_move()
             save_a_move()
+            if is_row_of_3_marks():
+                highlight_winning_row()
+                update_score()
+                show_board()
+                show_result(win=True)
+                break
+            if is_all_cells_filled():
+                show_board()
+                show_result()
+                break
             change_player()
-        if is_row_of_3_marks():
-            highlight_winning_row()
-            update_score()
-        show_board()
-        show_result()
         if is_1000_score():
             quit_game()
     else:
