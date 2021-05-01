@@ -53,25 +53,24 @@ def show_board():
     board_2 = f'│{cells["4"]:^5s}│{cells["5"]:^5s}│{cells["6"]:^5s}│'
     board_3 = f'│{cells["7"]:^5s}│{cells["8"]:^5s}│{cells["9"]:^5s}│'
 
-
-    top_line = '┌─────┬─────┬─────┐'
+    header_line = '┌─────┬─────┬─────┐'
     middle_line = '├─────┼─────┼─────┤'
-    bottom_line = '└─────┴─────┴─────┘'
+    footer_line = '└─────┴─────┴─────┘'
+
     score_board = f'"X"{scores["X"]:>4d} : {scores["O"]:<4d}"O"'
     player_string = f'Player "{player}"'
     round_string = f'Round {current_round}'
 
     print('\n' * 100)
     print(LOGO)
-    print(f'{top_line:>20s}{"":^38s}{top_line:<20s}')
+    print(f'{header_line:>20s}{"":^38s}{header_line:<20s}')
     print(f'{help_1:>20s}{"Game Score":^38s}{board_1:<20s}')
     print(f'{middle_line:>20s}{score_board:^38s}{middle_line:<20s}')
     print(f'{help_2:>20s}{"":^38s}{board_2:<20s}')
     print(f'{middle_line:>20s}{round_string:^38s}{middle_line:<20s}')
     print(f'{help_3:>20s}{"":^38s}{board_3:<20s}')
-    print(f'{bottom_line:>20s}{"":^38s}{bottom_line:<20s}')
+    print(f'{footer_line:>20s}{"":^38s}{footer_line:<20s}')
     print(f'{player_string:^78s}')
-
     return
 
 
@@ -133,7 +132,7 @@ def change_player():
 # TODO: fix show_result()
 # TODO: fix loop to exclude 'Wanna play?' after 'Another round?'
 # TODO: refactor highlight_winning_row()
-# TODO: fix encoding for git bash and windows terminal, check on linux
+# TODO: fix encoding for git bash and windows terminal
 def highlight_winning_row():
     start_highlight = '\033[32m  '
     end_highlight = '  \x1b[0m'
