@@ -72,14 +72,14 @@ def show_board():
     round_string = f'Round {current_round}'
 
     print(LOGO)
-    print(f'{header_line:>20s}{"":^38s}{header_line:<20s}')
-    print(f'{help_1:>20s}{"Game Score":^38s}{board_1:<20s}')
-    print(f'{middle_line:>20s}{score_board:^38s}{middle_line:<20s}')
-    print(f'{help_2:>20s}{"":^38s}{board_2:<20s}')
-    print(f'{middle_line:>20s}{round_string:^38s}{middle_line:<20s}')
+    print(f'{header_line:>20s}{"Game Score":^38s}{header_line:<20s}')
+    print(f'{help_1:>20s}{score_board:^38s}{board_1:<20s}')
+    print(f'{middle_line:>20s}{"":^38s}{middle_line:<20s}')
+    print(f'{help_2:>20s}{round_string:^38s}{board_2:<20s}')
+    print(f'{middle_line:>20s}{"":^38s}{middle_line:<20s}')
     print(f'{help_3:>20s}{"":^38s}{board_3:<20s}')
-    print(f'{footer_line:>20s}{"":^38s}{footer_line:<20s}')
-    print(f'{player_string:^78s}')
+    print(f'{footer_line:>20s}{player_string:^38s}{footer_line:<20s}')
+    print()
     return
 
 
