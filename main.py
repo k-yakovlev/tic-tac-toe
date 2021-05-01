@@ -23,9 +23,9 @@ def user_want_play(again=False):
         answer = input(f'{"":28s}Another round? (y/n): ')
     else:
         if not again:
-            answer = input('Wanna play? (y/n): ')
+            answer = input(f'{"Wanna play? (y/n): ":>49s}')
         else:
-            answer = input('Enter "y" (as "yes") to play or "n" (as "no") to leave the game: ')
+            answer = input(f'{"":6s}Enter "y" (as "yes") for start the game or "n" (as "no") for exit: ')
 
     if answer.lower() == 'y':
         return True
@@ -138,7 +138,6 @@ def change_player():
 
 # TODO: fix loop for detecting row earlier
 # TODO: fix show_result()
-# TODO: fix 'See you later!' alignment.
 def highlight_winning_row():
     start_highlight = '  \33[92;5m'
     end_highlight = '\33[0m  '
@@ -176,7 +175,7 @@ def change_round():
 
 
 def quit_game():
-    print('See you later!')
+    print(f'{"See you later!":^78s}')
     return
 
 
