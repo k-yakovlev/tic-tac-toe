@@ -1,4 +1,5 @@
 import os
+import time
 
 # import os & os.system('') added for correct work in windows cmd.
 os.system('')
@@ -160,7 +161,13 @@ def show_result(win=False):
 
 def is_1000_score():
     if 1000 in scores.values():
-        print('Wow, 1000 scores! Take a rest, game over.')
+        print()
+        print(f'{"Wow, 1000 scores! Take a rest.":^78s}')
+        print(f'{"GAME OVER":^78s}')
+        for _ in range(10, -1, -1):
+            timer = f'{_:^78}'
+            print(timer, end='\r')
+            time.sleep(1)
         return True
     else:
         return False
