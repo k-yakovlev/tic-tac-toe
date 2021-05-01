@@ -19,10 +19,13 @@ def user_want_play(again=False):
     If user input is incorrect, then extended question will be shown
     again till to correct answer (y/n).
     """
-    if not again:
-        answer = input('Wanna play? (y/n): ')
+    if current_round > 0:
+        answer = input(f'{"":28s}Another round? (y/n): ')
     else:
-        answer = input('Enter "y" (as "yes") to play or "n" (as "no") to leave the game: ')
+        if not again:
+            answer = input('Wanna play? (y/n): ')
+        else:
+            answer = input('Enter "y" (as "yes") to play or "n" (as "no") to leave the game: ')
 
     if answer.lower() == 'y':
         return True
@@ -135,7 +138,7 @@ def change_player():
 
 # TODO: fix loop for detecting row earlier
 # TODO: fix show_result()
-# TODO: fix loop to exclude 'Wanna play?' after 'Another round?'
+# TODO: fix 'See you later!' alignment.
 def highlight_winning_row():
     start_highlight = '  \33[92;5m'
     end_highlight = '\33[0m  '
@@ -166,16 +169,6 @@ def is_1000_score():
         return False
 
 
-def user_want_new_round():
-    answer = input(f'{"":28s}Another round? (y/n): ')
-    if answer.lower() == 'y':
-        return True
-    elif answer.lower() == 'n':
-        return False
-    else:
-        return user_want_new_round()
-
-
 def change_round():
     global current_round
     current_round += 1
@@ -190,6 +183,7 @@ def quit_game():
 def game():
     print(LOGO)
     while user_want_play():
+        change_round()
         create_board()
         while not is_row_of_3_marks() or is_all_cells_filled():
             show_board()
@@ -207,14 +201,12 @@ def game():
         show_result()
         if is_1000_score():
             quit_game()
-        if user_want_new_round():
-            change_round()
     else:
         quit_game()
 
 
 player = 'X'
-current_round = 1
+current_round = 0
 scores = {'X': 0, 'O': 0}
 players_cells = {}
 player_input = False
