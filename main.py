@@ -172,18 +172,12 @@ def change_round():
     return
 
 
-def quit_game():
-    print(f'{"See you later!":^78s}')
-    return
-
-
 def clear_screen():
     print("\033[H\033[2J", end="", flush=True)
     return
 
 
 # TODO: add prompt & actions for quit anytime & reset score
-# TODO: add empty string if not error message or make replit.clear() instead of '\n'*100
 # TODO: refactor game() and show_result()
 # TODO: change player for next round if draw.
 # TODO: add docstrings.
@@ -218,10 +212,8 @@ def game():
                 break
             change_player()
         if is_1000_score():
-            quit_game()
             clear_screen()
     else:
-        quit_game()
         clear_screen()
 
 
