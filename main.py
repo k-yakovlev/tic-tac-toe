@@ -47,10 +47,11 @@ def new_game():
 
 def create_board():
     """Create new board for game and help-board with cells numbers"""
-    global nums, cells, players_cells
+    global nums, cells, players_cells, current_round
     nums = {'1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'}
     cells = {'1': '', '2': '', '3': '', '4': '', '5': '', '6': '', '7': '', '8': '', '9': ''}
     players_cells = {'X': set(), 'O': set()}
+    current_round += 1
     return
 
 
@@ -173,12 +174,6 @@ def is_1000_score():
         return False
 
 
-def change_round():
-    global current_round
-    current_round += 1
-    return
-
-
 def clear_screen():
     print("\033[H\033[2J", end="", flush=True)
     return
@@ -193,7 +188,6 @@ def clear_screen():
 def game():
     clear_screen()
     while not is_1000_score() and user_want_play():
-        change_round()
         create_board()
         while not is_row_of_3_marks() or is_all_cells_filled():
             clear_screen()
