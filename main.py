@@ -185,7 +185,7 @@ def clear_screen():
 
 def game():
     clear_screen()
-    while user_want_play():
+    while not is_1000_score() and user_want_play():
         change_round()
         create_board()
         while not is_row_of_3_marks() or is_all_cells_filled():
@@ -211,8 +211,6 @@ def game():
                 show_result()
                 break
             change_player()
-        if is_1000_score():
-            clear_screen()
     else:
         clear_screen()
 
