@@ -22,6 +22,7 @@ def user_want_play(again=False):
     if current_round > 0:
         answer = input(f'{"":28s}Another round? (y/n): ')
     else:
+        print(LOGO)
         if not again:
             answer = input(f'{"Wanna play? (y/n): ":>49s}')
         else:
@@ -69,7 +70,6 @@ def show_board():
     player_string = f'Player "{player}"'
     round_string = f'Round {current_round}'
 
-    print('\n' * 100)
     print(LOGO)
     print(f'{header_line:>20s}{"":^38s}{header_line:<20s}')
     print(f'{help_1:>20s}{"Game Score":^38s}{board_1:<20s}')
@@ -190,33 +190,39 @@ def clear_screen():
 
 
 def game():
-    print(LOGO)
+    clear_screen()
     while user_want_play():
         change_round()
         create_board()
         while not is_row_of_3_marks() or is_all_cells_filled():
+            clear_screen()
             show_board()
             ask_a_move()
             while not cell_is_available():
+                clear_screen()
                 show_board()
                 show_error()
                 ask_a_move()
             save_a_move()
             if is_row_of_3_marks():
+                clear_screen()
                 highlight_winning_row()
                 update_score()
                 show_board()
                 show_result(win=True)
                 break
             if is_all_cells_filled():
+                clear_screen()
                 show_board()
                 show_result()
                 break
             change_player()
         if is_1000_score():
             quit_game()
+            clear_screen()
     else:
         quit_game()
+        clear_screen()
 
 
 player = 'X'
