@@ -139,8 +139,8 @@ def change_player():
 
 
 def highlight_winning_row():
-    start_highlight = '  \33[92;5m'
-    end_highlight = '\33[0m  '
+    start_highlight = '  \033[92;5m'
+    end_highlight = '\033[0m  '
     for cell in winning_row[0]:
         cells[str(cell)] = start_highlight + cells[str(cell)] + end_highlight
     return
