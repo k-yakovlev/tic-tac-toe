@@ -97,12 +97,13 @@ def cell_is_available():
 
 
 def show_error():
+    red_highlight = '\033[91;1m'
+    end_highlight = '\033[0m'
     if player_input in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
-        taken_cell_message = f'Cell "{player_input}" is already taken. Try again.'
-        print(f'{taken_cell_message:^78s}')
+        error_message = f'Cell "{player_input}" is already taken.'
     else:
-        wrong_cell_message = f'It is not a number of cell. Try again.'
-        print(f'{wrong_cell_message:^78s}')
+        error_message = f'It is not a number of cell.'
+    print(f'{red_highlight}{error_message:^78s}{end_highlight}')
     return
 
 
@@ -182,6 +183,11 @@ def clear_screen():
 # TODO: add prompt & actions for quit anytime & reset score
 # TODO: refactor game() and show_result()
 # TODO: add docstrings.
+# TODO: highlight error message red
+# TODO: show error if error else show empty string in show_board()
+# TODO: get_error() before show_board() if it need
+# TODO: clear screen if error on welcome screen
+# TODO: clear screen if error when ask another round
 
 
 def game():
