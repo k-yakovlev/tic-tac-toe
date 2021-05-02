@@ -68,27 +68,27 @@ def show_board(result=None):
     middle_line = '├─────┼─────┼─────┤'
     footer_line = '└─────┴─────┴─────┘'
 
-    score_board = f'"X"{scores["X"]:>4d} : {scores["O"]:<4d}"O"'
-    player_string = f'Player "{player}"'
-    round_string = f'Round {current_round}'
-
-    print(LOGO)
-    print(f'{header_line:>20s}{"Game Score":^38s}{header_line:<20s}')
-    print(f'{help_1:>20s}{score_board:^38s}{board_1:<20s}')
-    print(f'{middle_line:>20s}{"":^38s}{middle_line:<20s}')
-    print(f'{help_2:>20s}{round_string:^38s}{board_2:<20s}')
-    print(f'{middle_line:>20s}{"":^38s}{middle_line:<20s}')
-    print(f'{help_3:>20s}{"":^38s}{board_3:<20s}')
-    print(f'{footer_line:>20s}{player_string:^38s}{footer_line:<20s}')
-    print()
-    if result:
+    scoreboard = f'"X"{scores["X"]:>4d} : {scores["O"]:<4d}"O"'
+    round_data = f'Round {current_round}'
+    if not result:
+        current_info = f'Player "{player}"'
+    else:
         if result == 'win':
             message = f'Player "{player}" wins the round!'
             highlight = green_highlight
         else:
             message = 'It\'s a draw - nobody wins.'
             highlight = yellow_highlight
-        print(f'{highlight}{message:^78s}{end_highlight}')
+        current_info = f'{highlight}{message:^38s}{end_highlight}'
+
+    print(LOGO)
+    print(f'{header_line:>20s}{"SCORE":^38s}{header_line:<20s}')
+    print(f'{help_1:>20s}{scoreboard:^38s}{board_1:<20s}')
+    print(f'{middle_line:>20s}{"":^38s}{middle_line:<20s}')
+    print(f'{help_2:>20s}{round_data:^38s}{board_2:<20s}')
+    print(f'{middle_line:>20s}{"":^38s}{middle_line:<20s}')
+    print(f'{help_3:>20s}{current_info:^38s}{board_3:<20s}')
+    print(f'{footer_line:>20s}{"":^38s}{footer_line:<20s}')
     return
 
 
