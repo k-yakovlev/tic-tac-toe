@@ -181,6 +181,8 @@ def get_next_move(error=False):
     show_board()
     if error:
         show_error()
+    else:
+        print()
     ask_a_move()
 
 
