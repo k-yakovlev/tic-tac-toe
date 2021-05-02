@@ -97,8 +97,6 @@ def cell_is_available():
 
 
 def show_error():
-    red_highlight = '\033[91;1m'
-    end_highlight = '\033[0m'
     if player_input in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
         error_message = f'Cell "{player_input}" is already taken.'
     else:
@@ -140,10 +138,8 @@ def change_player():
 
 
 def highlight_winning_row():
-    start_highlight = '  \033[92;5m'
-    end_highlight = '\033[0m  '
     for cell in winning_row[0]:
-        cells[str(cell)] = start_highlight + cells[str(cell)] + end_highlight
+        cells[str(cell)] = f'{green_blink_highlight}{cells[str(cell)]:^5s}{end_highlight}'
     return
 
 
@@ -233,6 +229,10 @@ winning_cells = [
     {2, 5, 8}, {3, 6, 9}, {1, 5, 9}, {3, 5, 7}
 ]
 winning_row = []
+
+red_highlight = '\033[91;1m'
+green_blink_highlight = '\033[92;5m'
+end_highlight = '\033[0m'
 
 if __name__ == '__main__':
     game()
