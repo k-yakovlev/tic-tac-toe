@@ -84,9 +84,11 @@ def show_board(result=None):
     if result:
         if result == 'win':
             message = f'Player "{player}" wins the round!'
+            highlight = green_highlight
         else:
             message = 'It\'s a draw - nobody wins.'
-        print(f'{green_highlight}{message:^78s}{end_highlight}')
+            highlight = yellow_highlight
+        print(f'{highlight}{message:^78s}{end_highlight}')
     return
 
 
@@ -228,6 +230,7 @@ winning_rows = []
 red_highlight = '\033[91;1m'
 green_highlight = '\033[92;1m'
 green_blink_highlight = '\033[92;5m'
+yellow_highlight = '\033[93;1m'
 end_highlight = '\033[0m'
 
 if __name__ == '__main__':
