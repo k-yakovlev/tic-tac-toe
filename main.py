@@ -55,7 +55,7 @@ def create_board():
     return
 
 
-def show_board():
+def show_board(result=None):
     help_1 = f'│{nums["1"]:^5s}│{nums["2"]:^5s}│{nums["3"]:^5s}│'
     help_2 = f'│{nums["4"]:^5s}│{nums["5"]:^5s}│{nums["6"]:^5s}│'
     help_3 = f'│{nums["7"]:^5s}│{nums["8"]:^5s}│{nums["9"]:^5s}│'
@@ -81,6 +81,12 @@ def show_board():
     print(f'{help_3:>20s}{"":^38s}{board_3:<20s}')
     print(f'{footer_line:>20s}{player_string:^38s}{footer_line:<20s}')
     print()
+    if result:
+        if result == 'win':
+            message = f'Player "{player}" wins the round!'
+        else:
+            message = 'It\'s a draw - nobody wins.'
+        print(f'{green_highlight}{message:^78s}{end_highlight}')
     return
 
 
@@ -149,15 +155,6 @@ def update_score():
     return
 
 
-def show_result(win=False):
-    if not win:
-        message = 'It\'s a draw. Try another round!'
-    else:
-        message = f'Player "{player}" wins the round!'
-    print(f'{message:^78s}')
-    return
-
-
 def is_1000_score():
     if 1000 in scores.values():
         print()
@@ -178,11 +175,10 @@ def clear_screen():
 
 
 # TODO: add prompt & actions for quit anytime & reset score
-# TODO: refactor game() and show_result()
-# TODO: add docstrings.
-# TODO: highlight error message red
-# TODO: show error if error else show empty string in show_board()
+# TODO: refactor game() and join show_error() to show_board()
+# TODO: fix "it is" to "it's" in error message
 # TODO: get_error() before show_board() if it need
+# TODO: add docstrings.
 # TODO: clear screen if error on welcome screen
 # TODO: clear screen if error when ask another round
 
@@ -206,11 +202,9 @@ def game():
         if is_row_of_3_marks():
             highlight_winning_rows()
             update_score()
-        show_board()
-        if is_row_of_3_marks():
-            show_result(win=True)
+            show_board(result='win')
         else:
-            show_result()
+            show_board(result='draw')
     else:
         clear_screen()
 
@@ -229,6 +223,7 @@ winning_cells = [
 winning_rows = []
 
 red_highlight = '\033[91;1m'
+green_highlight = '\033[92;1m'
 green_blink_highlight = '\033[92;5m'
 end_highlight = '\033[0m'
 
