@@ -174,6 +174,14 @@ def clear_screen():
     return
 
 
+def get_next_move(error=False):
+    clear_screen()
+    show_board()
+    if error:
+        show_error()
+    ask_a_move()
+
+
 # TODO: add prompt & actions for quit anytime & reset score
 # TODO: refactor game() and join show_error() to show_board()
 # TODO: fix "it is" to "it's" in error message
@@ -189,14 +197,9 @@ def game():
         create_board()
         while not is_row_of_3_marks() and not is_all_cells_filled():
             change_player()
-            clear_screen()
-            show_board()
-            ask_a_move()
+            get_next_move()
             while not cell_is_available():
-                clear_screen()
-                show_board()
-                show_error()
-                ask_a_move()
+                get_next_move(error=True)
             save_a_move()
         clear_screen()
         if is_row_of_3_marks():
