@@ -138,8 +138,9 @@ def change_player():
 
 
 def highlight_winning_rows():
-    for cell in winning_rows[0]:
-        cells[str(cell)] = f'{green_blink_highlight}{cells[str(cell)]:^5s}{end_highlight}'
+    for row in winning_rows:
+        for cell in row:
+            cells[str(cell)] = f'{green_blink_highlight}{cells[str(cell)]:^5s}{end_highlight}'
     return
 
 
