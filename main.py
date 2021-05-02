@@ -191,9 +191,9 @@ def game():
     clear_screen()
     while not is_1000_score() and user_want_play():
         create_board()
-        while not is_row_of_3_marks() or is_all_cells_filled():
-            clear_screen()
+        while not is_row_of_3_marks() and not is_all_cells_filled():
             change_player()
+            clear_screen()
             show_board()
             ask_a_move()
             while not cell_is_available():
@@ -202,18 +202,15 @@ def game():
                 show_error()
                 ask_a_move()
             save_a_move()
-            if is_row_of_3_marks():
-                clear_screen()
-                highlight_winning_rows()
-                update_score()
-                show_board()
-                show_result(win=True)
-                break
-            if is_all_cells_filled():
-                clear_screen()
-                show_board()
-                show_result()
-                break
+        clear_screen()
+        if is_row_of_3_marks():
+            highlight_winning_rows()
+            update_score()
+        show_board()
+        if is_row_of_3_marks():
+            show_result(win=True)
+        else:
+            show_result()
     else:
         clear_screen()
 
