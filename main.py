@@ -21,6 +21,7 @@ def user_want_play(again=False):
     again till to correct answer (y/n).
     """
     if current_round > 0:
+        print()
         answer = input(f'{"":28s}Another round? (y/n): ')
     else:
         print(LOGO)
@@ -34,6 +35,9 @@ def user_want_play(again=False):
     elif answer.lower() == 'n':
         return False
     else:
+        clear_screen()
+        if current_round > 0:
+            show_board()
         return user_want_play(again=True)
 
 
