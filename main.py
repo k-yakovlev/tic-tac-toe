@@ -113,9 +113,9 @@ def save_a_move():
 
 
 def is_row_of_3_marks():
-    global winning_row
-    winning_row = [_ for _ in winning_cells if _.issubset(players_cells[player])]
-    if winning_row:
+    global winning_rows
+    winning_rows = [_ for _ in winning_cells if _.issubset(players_cells[player])]
+    if winning_rows:
         return True
     else:
         return False
@@ -137,8 +137,8 @@ def change_player():
     return
 
 
-def highlight_winning_row():
-    for cell in winning_row[0]:
+def highlight_winning_rows():
+    for cell in winning_rows[0]:
         cells[str(cell)] = f'{green_blink_highlight}{cells[str(cell)]:^5s}{end_highlight}'
     return
 
@@ -203,7 +203,7 @@ def game():
             save_a_move()
             if is_row_of_3_marks():
                 clear_screen()
-                highlight_winning_row()
+                highlight_winning_rows()
                 update_score()
                 show_board()
                 show_result(win=True)
@@ -228,7 +228,7 @@ winning_cells = [
     {1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {1, 4, 7},
     {2, 5, 8}, {3, 6, 9}, {1, 5, 9}, {3, 5, 7}
 ]
-winning_row = []
+winning_rows = []
 
 red_highlight = '\033[91;1m'
 green_blink_highlight = '\033[92;5m'
