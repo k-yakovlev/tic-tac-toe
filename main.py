@@ -105,6 +105,12 @@ def ask_a_move():
 def cell_is_available():
     if player_input in nums.values():
         return True
+    elif player_input == 'quit':
+        print()
+        print(f'{"Good bye!":^78s}')
+        time.sleep(1)
+        clear_screen()
+        return quit()
     return False
 
 
