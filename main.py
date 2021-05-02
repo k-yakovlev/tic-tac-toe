@@ -112,7 +112,7 @@ def show_error():
     if player_input in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
         error_message = f'Cell "{player_input}" is already taken.'
     else:
-        error_message = f'It is not a number of cell.'
+        error_message = f'It\'s not a number of cell.'
     print(f'{red_highlight}{error_message:^78s}{end_highlight}')
     return
 
@@ -191,12 +191,7 @@ def get_next_move(error=False):
 
 
 # TODO: add prompt & actions for quit anytime & reset score
-# TODO: refactor game() and join show_error() to show_board()
-# TODO: fix "it is" to "it's" in error message
-# TODO: get_error() before show_board() if it need
 # TODO: add docstrings.
-# TODO: clear screen if error on welcome screen
-# TODO: clear screen if error when ask another round
 
 
 def game():
