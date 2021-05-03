@@ -196,6 +196,7 @@ def clear_screen():
 
 
 def get_next_move(error=False):
+    """Combine call of simple repeated functions to make code more DRY."""
     clear_screen()
     show_board()
     if error:
