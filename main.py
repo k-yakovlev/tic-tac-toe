@@ -123,6 +123,7 @@ def show_error():
 
 
 def save_a_move():
+    """Mark & save chosen cell number as one of the current player cells."""
     cells[player_input] = player
     nums[player_input] = ' '
     players_cells[player].add(int(player_input))
