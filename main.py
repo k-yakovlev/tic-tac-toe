@@ -206,9 +206,6 @@ def get_next_move(error=False):
     ask_a_move()
 
 
-# TODO: add docstrings.
-
-
 def game():
     """Main script of the gameplay."""
     clear_screen()
