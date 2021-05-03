@@ -100,6 +100,7 @@ def ask_a_move():
 
 
 def cell_is_available():
+    """Check if player input is one of available cells or "quit" command."""
     if player_input in nums.values():
         return True
     elif player_input == 'quit':
