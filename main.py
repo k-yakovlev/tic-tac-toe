@@ -167,6 +167,7 @@ def highlight_winning_rows():
 
 
 def update_score():
+    """Increase current player score by 1 point."""
     scores[player] += 1
     return
 
