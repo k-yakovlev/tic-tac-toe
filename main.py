@@ -210,6 +210,7 @@ def get_next_move(error=False):
 
 
 def game():
+    """Main script of the gameplay."""
     clear_screen()
     while not is_1000_score() and user_want_play():
         create_board()
