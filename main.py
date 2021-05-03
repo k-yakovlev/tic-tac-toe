@@ -41,14 +41,6 @@ def user_want_play(again=False):
         return user_want_play(again=True)
 
 
-def new_game():
-    global player, current_round, scores
-    player = 'O'
-    current_round = 1
-    scores = {'X': 0, 'O': 0}
-    return
-
-
 def create_board():
     """Create new board for game and help-board with cells numbers"""
     global nums, cells, players_cells, current_round
