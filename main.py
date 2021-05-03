@@ -98,7 +98,8 @@ def show_board(result=None):
 
 def ask_a_move():
     global player_input
-    player_input = input(f'{"":>28s}Enter the cell number: ')
+    message = 'Enter the cell number or "quit"'
+    player_input = input(f'{"":>23s}{message}: ')
     return
 
 
@@ -196,7 +197,6 @@ def get_next_move(error=False):
     ask_a_move()
 
 
-# TODO: add prompt & actions for quit anytime & reset score
 # TODO: add docstrings.
 
 
