@@ -149,6 +149,7 @@ def is_all_cells_filled():
 
 
 def change_player():
+    """Switch current player between "X" and "O"."""
     global player
     if player == 'X':
         player = 'O'
