@@ -92,6 +92,7 @@ def show_board(result=None):
 
 
 def ask_a_move():
+    """Ask player to enter the cell number for a move, or "quit" for exit."""
     global player_input
     message = 'Enter the cell number or "quit"'
     player_input = input(f'{"":>23s}{message}: ')
