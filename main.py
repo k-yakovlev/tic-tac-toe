@@ -190,6 +190,7 @@ def is_1000_score():
 
 
 def clear_screen():
+    """Clear terminal screen. History available by scroll."""
     print("\033[H\033[2J", end="", flush=True)
     return
 
