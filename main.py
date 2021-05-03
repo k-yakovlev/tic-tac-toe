@@ -141,6 +141,7 @@ def is_row_of_3_marks():
 
 
 def is_all_cells_filled():
+    """Return True if all cells on playing field are filled."""
     if '' in cells.values():
         return False
     else:
