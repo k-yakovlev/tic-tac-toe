@@ -217,8 +217,7 @@ def game():
             show_board(result='win')
         else:
             show_board(result='draw')
-    else:
-        clear_screen()
+    quit_game()
 
 
 player = 'O'
