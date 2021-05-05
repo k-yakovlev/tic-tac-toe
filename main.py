@@ -1,5 +1,6 @@
 import os
 import time
+import sys
 
 # import os & os.system('') added for correct work in windows cmd.
 os.system('')
@@ -101,11 +102,7 @@ def cell_is_available():
     if player_input in nums.values():
         return True
     elif player_input == 'quit':
-        print()
-        print(f'{"Good bye!":^78s}')
-        time.sleep(1)
-        clear_screen()
-        return quit()
+        return quit_game()
     return None
 
 
@@ -192,6 +189,14 @@ def get_next_move(error=False):
     else:
         print()
     ask_a_move()
+
+
+def quit_game():
+    print()
+    print(f'{"Good bye!":^78s}')
+    time.sleep(1)
+    clear_screen()
+    sys.exit()
 
 
 def game():
