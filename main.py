@@ -1,6 +1,6 @@
 import os
-import time
 import sys
+import time
 
 # import os & os.system('') added for correct work in windows cmd.
 os.system('')
@@ -15,11 +15,10 @@ LOGO = """
 """
 
 
-def user_want_play(again=False):
-    """Return True if user want to play, otherwise return False.
+def user_want_play(again=None):
+    """Return True if user want to play.
 
-    If user input is incorrect, then extended question will be shown
-    again till to correct answer (y/n).
+    If user input is incorrect, then extended question will be shown.
     """
     if current_round > 0:
         print()
@@ -33,13 +32,12 @@ def user_want_play(again=False):
 
     if answer.lower() == 'y':
         return True
-    elif answer.lower() == 'n':
-        return False
-    else:
+    elif answer.lower() != 'n':
         clear_screen()
         if current_round > 0:
             show_board()
         return user_want_play(again=True)
+    return None
 
 
 def create_board():
