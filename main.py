@@ -192,6 +192,7 @@ def get_next_move(error=False):
 
 
 def quit_game():
+    """Print "Good bye!" and leave the game after 1 sec pause."""
     print()
     print(f'{"Good bye!":^78s}')
     time.sleep(1)
