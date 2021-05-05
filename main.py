@@ -48,7 +48,6 @@ def create_board():
     cells = {'1': '', '2': '', '3': '', '4': '', '5': '', '6': '', '7': '', '8': '', '9': ''}
     players_cells = {'X': set(), 'O': set()}
     current_round += 1
-    return
 
 
 def show_board(result=None):
@@ -88,7 +87,6 @@ def show_board(result=None):
     print(f'{middle_line:>20s}{"":^38s}{middle_line:<20s}')
     print(f'{help_3:>20s}{current_info:^38s}{board_3:<20s}')
     print(f'{footer_line:>20s}{"":^38s}{footer_line:<20s}')
-    return
 
 
 def ask_a_move():
@@ -96,7 +94,6 @@ def ask_a_move():
     global player_input
     message = 'Enter the cell number or "quit"'
     player_input = input(f'{"":>23s}{message}: ')
-    return
 
 
 def cell_is_available():
@@ -109,7 +106,7 @@ def cell_is_available():
         time.sleep(1)
         clear_screen()
         return quit()
-    return False
+    return None
 
 
 def show_error():
@@ -119,7 +116,6 @@ def show_error():
     else:
         error_message = f'It\'s not a number of cell.'
     print(f'{red_highlight}{error_message:^78s}{end_highlight}')
-    return
 
 
 def save_a_move():
@@ -127,7 +123,6 @@ def save_a_move():
     cells[player_input] = player
     nums[player_input] = ' '
     players_cells[player].add(int(player_input))
-    return
 
 
 def is_row_of_3_marks():
@@ -136,16 +131,14 @@ def is_row_of_3_marks():
     winning_rows = [_ for _ in winning_cells if _.issubset(players_cells[player])]
     if winning_rows:
         return True
-    else:
-        return False
+    return None
 
 
 def is_all_cells_filled():
     """Return True if all cells on playing field are filled."""
-    if '' in cells.values():
-        return False
-    else:
+    if '' not in cells.values():
         return True
+    return None
 
 
 def change_player():
@@ -155,7 +148,6 @@ def change_player():
         player = 'O'
     else:
         player = 'X'
-    return
 
 
 def highlight_winning_rows():
@@ -163,13 +155,11 @@ def highlight_winning_rows():
     for row in winning_rows:
         for cell in row:
             cells[str(cell)] = f'{green_blink_highlight}{cells[str(cell)]:^5s}{end_highlight}'
-    return
 
 
 def update_score():
     """Increase current player score by 1 point."""
     scores[player] += 1
-    return
 
 
 def is_1000_score():
@@ -185,14 +175,12 @@ def is_1000_score():
             print(timer, end='\r')
             time.sleep(1)
         return True
-    else:
-        return False
+    return None
 
 
 def clear_screen():
     """Clear terminal screen. History available by scroll."""
     print("\033[H\033[2J", end="", flush=True)
-    return
 
 
 def get_next_move(error=False):
