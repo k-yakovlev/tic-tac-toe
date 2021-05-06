@@ -61,7 +61,8 @@ def create_board():
 def show_board(result=None):
     """Show board with prompt & playing fields, game data (score, round, etc.).
 
-    If player win or round draw - show result message instead of current player."""
+    If player win or round draw: show result message instead of current player.
+    """
     help_1 = f'│{nums["1"]:^5s}│{nums["2"]:^5s}│{nums["3"]:^5s}│'
     help_2 = f'│{nums["4"]:^5s}│{nums["5"]:^5s}│{nums["6"]:^5s}│'
     help_3 = f'│{nums["7"]:^5s}│{nums["8"]:^5s}│{nums["9"]:^5s}│'
