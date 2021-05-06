@@ -43,8 +43,16 @@ def user_want_play(again=None):
 def create_board():
     """Create new board for game and help-board with cells numbers"""
     global nums, cells, players_cells, current_round
-    nums = {'1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'}
-    cells = {'1': '', '2': '', '3': '', '4': '', '5': '', '6': '', '7': '', '8': '', '9': ''}
+    nums = {
+        '1': '1', '2': '2', '3': '3',
+        '4': '4', '5': '5', '6': '6',
+        '7': '7', '8': '8', '9': '9',
+    }
+    cells = {
+        '1': '', '2': '', '3': '',
+        '4': '', '5': '', '6': '',
+        '7': '', '8': '', '9': '',
+    }
     players_cells = {'X': set(), 'O': set()}
     current_round += 1
 
