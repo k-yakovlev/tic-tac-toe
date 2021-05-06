@@ -161,7 +161,9 @@ def highlight_winning_rows():
     """Add green (and blink if possible) color to marks in winning rows."""
     for row in winning_rows:
         for cell in row:
-            cells[str(cell)] = f'{green_blink_highlight}{cells[str(cell)]:^5s}{end_highlight}'
+            cells[str(cell)] = f'{green_blink_highlight}' \
+                               f'{cells[str(cell)]:^5s}' \
+                               f'{end_highlight}'
 
 
 def update_score():
