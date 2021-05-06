@@ -133,7 +133,9 @@ def save_a_move():
 def is_row_of_3_marks():
     """Return True if rows of 3 marks are exist on playing field."""
     global winning_rows
-    winning_rows = [_ for _ in winning_cells if _.issubset(players_cells[player])]
+    winning_rows = [
+        _ for _ in winning_cells if _.issubset(players_cells[player])
+    ]
     if winning_rows:
         return True
     return None
