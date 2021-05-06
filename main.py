@@ -174,7 +174,8 @@ def update_score():
 def is_1000_score():
     """Return True if player has 1000 score.
 
-    Show congrats, GAME OVER and countdown."""
+    Show congrats, GAME OVER and countdown.
+    """
     if 1000 in scores.values():
         print()
         print(f'{"Wow, 1000 scores! Take a rest.":^78s}')
