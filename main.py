@@ -28,7 +28,8 @@ def user_want_play(again=None):
         if not again:
             answer = input(f'{"Wanna play? (y/n): ":>49s}')
         else:
-            answer = input(f'{"":6s}Enter "y" (as "yes") for start the game or "n" (as "no") for exit: ')
+            answer = input(f'{"":6s}Enter "y" (as "yes") for start the game'
+                           f' or "n" (as "no") for exit: ')
 
     if answer.lower() == 'y':
         return True
