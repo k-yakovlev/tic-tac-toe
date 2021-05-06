@@ -115,7 +115,7 @@ def cell_is_available():
 
 
 def show_error():
-    """Show message to say that entered cell is taken or that input is wrong."""
+    """Show message if entered cell is taken or other if input is wrong."""
     if player_input in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
         error_message = f'Cell "{player_input}" is already taken.'
     else:
