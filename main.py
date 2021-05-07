@@ -82,11 +82,11 @@ def show_board(result=None):
     else:
         if result == 'win':
             message = f'Player "{player}" wins the round!'
-            highlight = green_highlight
+            highlight = green_color
         else:
             message = 'It\'s a draw - nobody wins.'
-            highlight = yellow_highlight
-        current_info = f'{highlight}{message:^38s}{end_highlight}'
+            highlight = yellow_color
+        current_info = f'{highlight}{message:^38s}{end_color}'
 
     print(LOGO)
     print(f'{header_line:>20s}{"SCORE":^38s}{header_line:<20s}')
@@ -120,7 +120,7 @@ def show_error():
         error_message = f'Cell "{player_input}" is already taken.'
     else:
         error_message = f'It\'s not a number of cell.'
-    print(f'{red_highlight}{error_message:^78s}{end_highlight}')
+    print(f'{red_color}{error_message:^78s}{end_color}')
 
 
 def save_a_move():
@@ -161,9 +161,9 @@ def highlight_winning_rows():
     """Add green (and blink if possible) color to marks in winning rows."""
     for row in winning_rows:
         for cell in row:
-            cells[str(cell)] = f'{green_blink_highlight}' \
+            cells[str(cell)] = f'{green_blink_color}' \
                                f'{cells[str(cell)]:^5s}' \
-                               f'{end_highlight}'
+                               f'{end_color}'
 
 
 def update_score():
@@ -247,11 +247,11 @@ winning_cells = [
 ]
 winning_rows = []
 
-red_highlight = '\033[91;1m'
-green_highlight = '\033[92;1m'
-green_blink_highlight = '\033[92;5m'
-yellow_highlight = '\033[93;1m'
-end_highlight = '\033[0m'
+red_color = '\033[91;1m'
+green_color = '\033[92;1m'
+green_blink_color = '\033[92;5m'
+yellow_color = '\033[93;1m'
+end_color = '\033[0m'
 
 if __name__ == '__main__':
     game()
