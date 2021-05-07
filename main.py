@@ -164,7 +164,12 @@ def change_player():
 
 
 def highlight_winning_rows():
-    """Add green (and blink if possible) color to marks in winning rows."""
+    """Add green color to each mark in winning rows.
+
+    If current console(terminal) app can display blinking
+    ANSI escape sequences marks will be green & blinking.
+    If not - just green.
+    """
     for row in winning_rows:
         for cell in row:
             cell = str(cell)
