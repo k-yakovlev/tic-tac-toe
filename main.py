@@ -15,9 +15,9 @@ LOGO = (
 
 
 def print_logo():
-    """Print logo aligned in the center of 70 characters row."""
+    """Print logo aligned in the center of board."""
     for _ in LOGO:
-        print(f'{"":6}{_}')
+        print(f'{"":7}{_}')
     print()
 
 
