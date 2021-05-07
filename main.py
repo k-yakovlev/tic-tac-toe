@@ -246,7 +246,7 @@ def game():
 
 player = 'O'
 current_round = 0
-scores = {'X': 999, 'O': 0}
+scores = {'X': 0, 'O': 0}
 players_cells = {}
 player_input = ''
 nums = {}
