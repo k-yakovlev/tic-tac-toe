@@ -126,7 +126,7 @@ def show_error():
         error_message = f'Cell "{player_input}" is already taken.'
     else:
         error_message = f'It\'s not a number of cell.'
-    print(f'{red_color}{error_message:^69}{end_color}')
+    print(f'{red_color}{error_message:^68}{end_color}')
 
 
 def save_a_move():
@@ -188,10 +188,10 @@ def is_1000_score():
     """
     if 1000 in scores.values():
         print()
-        print(f'{"Wow, 1000 scores! Take a rest.":^69}')
-        print(f'{"GAME OVER":^69}')
+        print(f'{"Wow, 1000 scores! Take a rest.":^68}')
+        print(f'{"GAME OVER":^68}')
         for _ in range(10, -1, -1):
-            timer = f'{_:^69}'
+            timer = f'{_:^68}'
             print(timer, end='\r')
             time.sleep(1)
         return True
@@ -217,7 +217,7 @@ def get_next_move(error=False):
 def quit_game():
     """Print "Good bye!" and leave the game after 1 sec pause."""
     print()
-    print(f'{"Good bye!":^69}')
+    print(f'{"Good bye!":^68}')
     time.sleep(1)
     clear_screen()
     sys.exit()
@@ -246,7 +246,7 @@ def game():
 
 player = 'O'
 current_round = 0
-scores = {'X': 0, 'O': 0}
+scores = {'X': 999, 'O': 0}
 players_cells = {}
 player_input = ''
 nums = {}
