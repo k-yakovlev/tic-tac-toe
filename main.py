@@ -5,14 +5,20 @@ import time
 # import os & os.system('') added for correct work in windows cmd.
 os.system('')
 
-LOGO = """
-,--------.,--.               ,--.                         ,--.                 
-'--.  .--'`--' ,---.,-----.,-'  '-. ,--,--. ,---.,-----.,-'  '-. ,---.  ,---.  
-   |  |   ,--.| .--''-----''-.  .-'' ,-.  || .--''-----''-.  .-'| .-. || .-. : 
-   |  |   |  |\ `--.         |  |  \ '-'  |\ `--.         |  |  ' '-' '\  ---. 
-   `--'   `--' `---'         `--'   `--`--' `---'         `--'   `---'  `----' 
+LOGO = (
+    '  _______            __                   __            ',
+    ' /_  __(_)____      / /_____ ______      / /_____  ___  ',
+    '  / / / / ___/_____/ __/ __ `/ ___/_____/ __/ __ \/ _ \ ',
+    ' / / / / /__/_____/ /_/ /_/ / /__/_____/ /_/ /_/ /  __/ ',
+    '/_/ /_/\___/      \__/\__,_/\___/      \__/\____/\___/  ',
+)
 
-"""
+
+def print_logo():
+    """Print logo aligned in the center of 70 characters row."""
+    for _ in LOGO:
+        print(f'{_:^70}')
+    print()
 
 
 def user_want_play(again=None):
@@ -24,7 +30,7 @@ def user_want_play(again=None):
         print()
         answer = input(f'{"":28s}Another round? (y/n): ')
     else:
-        print(LOGO)
+        print_logo()
         if not again:
             answer = input(f'{"Wanna play? (y/n): ":>49s}')
         else:
@@ -88,7 +94,7 @@ def show_board(result=None):
             highlight = yellow_color
         current_info = f'{highlight}{message:^38s}{end_color}'
 
-    print(LOGO)
+    print_logo()
     print(f'{header_line:>20s}{"SCORE":^38s}{header_line:<20s}')
     print(f'{help_1:>20s}{scoreboard:^38s}{board_1:<20s}')
     print(f'{middle_line:>20s}{"":^38s}{middle_line:<20s}')
