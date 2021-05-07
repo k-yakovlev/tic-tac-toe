@@ -28,13 +28,13 @@ def user_want_play(again=None):
     """
     if current_round > 0:
         print()
-        answer = input(f'{"":28s}Another round? (y/n): ')
+        answer = input(f'{"":23}Another round? (y/n): ')
     else:
         print_logo()
         if not again:
-            answer = input(f'{"Wanna play? (y/n): ":>49s}')
+            answer = input(f'{"Wanna play? (y/n): ":>43}')
         else:
-            answer = input(f'{"":6s}Enter "y" (as "yes") for start the game'
+            answer = input(f'Enter "y" (as "yes") for start the game'
                            f' or "n" (as "no") for exit: ')
 
     if answer.lower() == 'y':
@@ -92,23 +92,23 @@ def show_board(result=None):
         else:
             message = 'It\'s a draw - nobody wins.'
             highlight = yellow_color
-        current_info = f'{highlight}{message:^38s}{end_color}'
+        current_info = f'{highlight}{message:^30}{end_color}'
 
     print_logo()
-    print(f'{header_line:>20s}{"SCORE":^38s}{header_line:<20s}')
-    print(f'{help_1:>20s}{scoreboard:^38s}{board_1:<20s}')
-    print(f'{middle_line:>20s}{"":^38s}{middle_line:<20s}')
-    print(f'{help_2:>20s}{round_data:^38s}{board_2:<20s}')
-    print(f'{middle_line:>20s}{"":^38s}{middle_line:<20s}')
-    print(f'{help_3:>20s}{current_info:^38s}{board_3:<20s}')
-    print(f'{footer_line:>20s}{"":^38s}{footer_line:<20s}')
+    print(f'{header_line}{"SCORE":^30}{header_line}')
+    print(f'{help_1}{scoreboard:^30}{board_1}')
+    print(f'{middle_line}{"":^30}{middle_line}')
+    print(f'{help_2}{round_data:^30}{board_2}')
+    print(f'{middle_line}{"":^30}{middle_line}')
+    print(f'{help_3}{current_info:^30}{board_3}')
+    print(f'{footer_line}{"":^30}{footer_line}')
 
 
 def ask_a_move():
     """Ask player to enter the cell number for a move, or "quit" for exit."""
     global player_input
     message = 'Enter the cell number or "quit"'
-    player_input = input(f'{"":>23s}{message}: ')
+    player_input = input(f'{"":>18}{message}: ')
 
 
 def cell_is_available():
@@ -126,7 +126,7 @@ def show_error():
         error_message = f'Cell "{player_input}" is already taken.'
     else:
         error_message = f'It\'s not a number of cell.'
-    print(f'{red_color}{error_message:^78s}{end_color}')
+    print(f'{red_color}{error_message:^69}{end_color}')
 
 
 def save_a_move():
@@ -168,7 +168,7 @@ def highlight_winning_rows():
     for row in winning_rows:
         for cell in row:
             cell = str(cell)
-            cells[cell] = f'{green_blink_color}{cells[cell]:^5s}{end_color}'
+            cells[cell] = f'{green_blink_color}{cells[cell]:^5}{end_color}'
 
 
 def update_score():
@@ -183,10 +183,10 @@ def is_1000_score():
     """
     if 1000 in scores.values():
         print()
-        print(f'{"Wow, 1000 scores! Take a rest.":^78s}')
-        print(f'{"GAME OVER":^78s}')
+        print(f'{"Wow, 1000 scores! Take a rest.":^69}')
+        print(f'{"GAME OVER":^69}')
         for _ in range(10, -1, -1):
-            timer = f'{_:^78}'
+            timer = f'{_:^69}'
             print(timer, end='\r')
             time.sleep(1)
         return True
@@ -212,7 +212,7 @@ def get_next_move(error=False):
 def quit_game():
     """Print "Good bye!" and leave the game after 1 sec pause."""
     print()
-    print(f'{"Good bye!":^78s}')
+    print(f'{"Good bye!":^69}')
     time.sleep(1)
     clear_screen()
     sys.exit()
